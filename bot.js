@@ -5,6 +5,8 @@ import { Bot } from 'grammy';
 
 import { start } from './components/start.js';
 import { menu } from './components/menu.js';
+import { createTransferRequest } from './components/create-transfer-request.js';
+import { showTransferRequests } from './components/show-transfer-requests.js';
 
 dotenv.config();
 
@@ -12,6 +14,9 @@ const bot = new Bot(process.env.BOT_TOKEN);
 
 menu(bot);
 start(bot);
+
+createTransferRequest(bot);
+showTransferRequests(bot);
 
 // Старт бота и выбор роли
 // bot.start(async (ctx) => {
