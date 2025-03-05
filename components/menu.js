@@ -8,8 +8,8 @@ const menuList = [
 		description: 'Создать объявление',
 	},
 	{
-		command: 'show_transfer_requests',
-		description: 'Показать список объявлений',
+		command: 'show_my_requests',
+		description: 'Показать мои объявления',
 	},
 ]
 

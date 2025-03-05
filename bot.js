@@ -1,12 +1,10 @@
 import dotenv from 'dotenv';
 import { Bot } from 'grammy';
-// import { db } from './firebase.js';
-// import { collection, doc, getDoc, setDoc, getDocs, query, where, updateDoc, addDoc } from 'firebase/firestore';
 
 import { start } from './components/start.js';
-import { menu } from './components/menu.js';
 import { createTransferRequest } from './components/create-transfer-request.js';
 import { showTransferRequests } from './components/show-transfer-requests.js';
+import { menu } from './components/menu.js';
 
 dotenv.config();
 
@@ -17,6 +15,7 @@ start(bot);
 
 createTransferRequest(bot);
 showTransferRequests(bot);
+
 
 // Старт бота и выбор роли
 // bot.start(async (ctx) => {
