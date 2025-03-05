@@ -32,6 +32,8 @@ export function start(bot) {
     });
 
     bot.callbackQuery('role_passenger', async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         await ctx.reply("Выберите действие:", {
             reply_markup: {
                 inline_keyboard: [
@@ -46,6 +48,8 @@ export function start(bot) {
 
 
     bot.callbackQuery('delete_request', async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const userId = ctx.from.id;
         const querySnapshot = await getDocs(collection(db, 'transfer-requests'));
         const userRequests = [];
@@ -71,6 +75,8 @@ export function start(bot) {
     });
 
     bot.callbackQuery(/delete_(.+)/, async (ctx) => {
+		await ctx.answerCallbackQuery();
+		
         const requestId = ctx.match[1];
         await deleteDoc(doc(db, 'transfer-requests', requestId));
         await ctx.reply("✅ Заявка удалена!");

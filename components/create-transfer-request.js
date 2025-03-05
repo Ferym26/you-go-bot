@@ -18,6 +18,8 @@ export const createTransferRequest = (bot) => {
     });
 
     bot.callbackQuery(/from_(.+)/, async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const place = ctx.match[1];
         const userId = ctx.from.id;
         const session = sessions.get(userId);
@@ -40,6 +42,8 @@ export const createTransferRequest = (bot) => {
     });
 
     bot.callbackQuery(/to_(.+)/, async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const place = ctx.match[1];
         const userId = ctx.from.id;
         const session = sessions.get(userId);
@@ -96,6 +100,8 @@ export const createTransferRequest = (bot) => {
     });
 
     bot.callbackQuery(/seats_(.+)/, async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const seats = ctx.match[1];
         const userId = ctx.from.id;
         const session = sessions.get(userId);
@@ -118,6 +124,8 @@ export const createTransferRequest = (bot) => {
     });
 
     bot.callbackQuery(/luggage_(.+)/, async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const luggage = ctx.match[1] === "yes";
         const userId = ctx.from.id;
         const session = sessions.get(userId);
@@ -142,6 +150,8 @@ export const createTransferRequest = (bot) => {
     });
 
 	bot.callbackQuery("confirm_request", async (ctx) => {
+		await ctx.answerCallbackQuery();
+
         const userId = ctx.from.id;
         const session = sessions.get(userId);
         if (!session) return;
@@ -156,6 +166,8 @@ export const createTransferRequest = (bot) => {
     });
 
     bot.callbackQuery("edit_request", async (ctx) => {
+		await ctx.answerCallbackQuery();
+		
         const userId = ctx.from.id;
         const session = sessions.get(userId);
         if (!session) return;

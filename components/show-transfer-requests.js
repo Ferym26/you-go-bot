@@ -3,6 +3,8 @@ import { collection, doc, getDoc, setDoc, getDocs, query, where, updateDoc, addD
 
 export const showTransferRequests = (bot) => {
     bot.callbackQuery('show_my_requests', async (ctx) => {
+		await ctx.answerCallbackQuery();
+		
         const userId = ctx.from.id;
         const querySnapshot = await getDocs(collection(db, 'transfer-requests'));
         const userRequests = [];
