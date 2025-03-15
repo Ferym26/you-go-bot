@@ -28,21 +28,3 @@ export const showTransferRequests = (bot) => {
         await ctx.reply(message);
     });
 };
-
-
-// Просмотр объявлений
-// bot.command('list_ads', async (ctx) => {
-//     const snapshot = await getDocs(collection(db, 'announcements'));
-
-//     if (snapshot.empty) {
-//         return ctx.reply('Нет доступных объявлений.');
-//     }
-
-//     let adsList = 'Доступные поездки:\n';
-//     snapshot.forEach(doc => {
-//         const ad = doc.data();
-//         adsList += `🔹 ${ad.route} | ${ad.price} | ${ad.time} | ${ad.role === 'driver' ? '🚗 Водитель' : '👤 Пассажир'}\n`;
-//     });
-
-//     ctx.reply(adsList);
-// });
